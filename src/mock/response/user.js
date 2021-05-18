@@ -24,7 +24,8 @@ export const getUserInfo = (options) => {
     dateTime: Random.datetime('yyyy-MM-dd : hh:mm'),
     image: Random.image(), // size bgc color format string
     img_base: Random.dataImage(),
-    fruit: Random.fruit()
+    fruit: Random.fruit(),
+    fruit1: '@fruit'
   }
   return Mock.mock(template)
 }
