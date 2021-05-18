@@ -33,6 +33,11 @@ export default [
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
   },
   {
+    path: '/count-to',
+    name: 'count_to',
+    component: () => import('@/views/count-to.vue')
+  },
+  {
     path: '/argu/:name',
     name: 'argu',
     props: true, // 将动态路由的值设为页面的props属性

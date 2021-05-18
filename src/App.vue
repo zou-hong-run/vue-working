@@ -12,33 +12,32 @@
     </transition-group>
   </div>
 </template>
-
 <style lang="less">
 // 进入
-.router-enter{
-  opacity: 0;
-}
-// 开始
-.router-enter-active{
-  transition: opacity 1s ease;
-}
-// 结束
-.router-enter-to{
-  opacity: 1;
-}
+// .router-enter{
+//   opacity: 0;
+// }
+// // 开始
+// .router-enter-active{
+//   transition: opacity 1s ease;
+// }
+// // 结束
+// .router-enter-to{
+//   opacity: 1;
+// }
 
-// 离开
-.router-leave{
-  opacity: 1;
-}
-// 开始
-.router-leave-active{
-  transition: opacity 1s ease;
-}
-// 结束
-.router-leave-to{
-  opacity: 0;
-}
+// // 离开
+// .router-leave{
+//   opacity: 1;
+// }
+// // 开始
+// .router-leave-active{
+//   transition: opacity 1s ease;
+// }
+// // 结束
+// .router-leave-to{
+//   opacity: 0;
+// }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

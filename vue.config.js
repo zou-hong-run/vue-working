@@ -22,5 +22,7 @@ module.exports = {
   devServer: {
     proxy: 'http://127.0.0.1:4523/mock/362774'
     // proxy:'http://localhost:8080'
-  }
+  },
+
+  lintOnSave: false
 }
