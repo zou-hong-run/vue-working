@@ -38,6 +38,11 @@ export default [
     component: () => import('@/views/count-to.vue')
   },
   {
+    path: '/split-pane',
+    name: 'split_pane',
+    component: () => import('@/views/split-pane.vue')
+  },
+  {
     path: '/argu/:name',
     name: 'argu',
     props: true, // 将动态路由的值设为页面的props属性
