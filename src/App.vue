@@ -4,7 +4,7 @@
       <router-link to="/">Home</router-link> |
       <router-link :to="{name:'About'}">About</router-link>
     </div>
-    <h1>命名视图</h1>
+    <h3>命名视图</h3>
     <transition-group name="router">
       <router-view key="default"/>
       <router-view key="email" name="email"/>

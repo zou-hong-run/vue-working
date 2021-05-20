@@ -43,6 +43,11 @@ export default [
     component: () => import('@/views/split-pane.vue')
   },
   {
+    path: '/render_page',
+    name: 'render_page',
+    component: () => import('@/views/render-page.vue')
+  },
+  {
     path: '/argu/:name',
     name: 'argu',
     props: true, // 将动态路由的值设为页面的props属性
