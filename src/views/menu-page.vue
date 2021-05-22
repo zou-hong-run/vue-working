@@ -20,7 +20,8 @@
         <a-menu-item v-if="!item.children" :key="`menu_item_${index}`">
           {{ item.title }}
         </a-menu-item>
-        <re-submenu v-else :key="`menu_item_${index}`" :parent="item" :index="index" ></re-submenu>
+        <re-submenu v-else :key="`menu_item_${index}`" :parent="item" :index="index" >
+        </re-submenu>
       </template>
     </a-menu>
   </div>
