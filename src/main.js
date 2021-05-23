@@ -3,6 +3,15 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import bus from '@/lib/bus'
+
+import iview from 'iview'
+import 'iview/dist/styles/iview.css'
+Vue.use(iview)
+
+// 按需加载
+// import { Button, Table} from 'iview'
+// Vue.component('Button', Button)
+// Vue.component('Table', Table)
 // 开发环境才使用
 if (process.env.NODE_ENV !== 'production') {
   require('./mock')
@@ -15,36 +24,36 @@ new Vue({
   render: h => h(App)
 }).$mount('#app')
 // render: h => {
-  //   return h('div',{
-  //    'class': 'count-up wrapper',
-  //    'class': ['count-to',true,false]
-  //    'class': {'count-to': 1!=1}
-  //     attrs: {
-  //       id: 'box'
-  //     },
-  //     style: {
-  //       color: 'pink'
-  //     },
-  //     props: {
-  //       endVal: 100
-  //     },
-  //     domProps: {
-  //      innerHTML: '123'
-  //     },
-  //     on:{
-  //       '内部发送的事件': (val) => {
-  //        console.log('animation end')
-  //     },
-  //     directives: [],//自定义指令
-  //     slot: 'default',
-  //     scopedSlots: 'default',
-  //     key: '',
-  //     ref: ''
-  //  },
-  //  nativeOn: {
-  //    'click': () => {
-  //      console.log('click!!')
-  //    }
-  //  }
-  //   },"renderfunction")
-  // }
+//   return h('div',{
+//    'class': 'count-up wrapper',
+//    'class': ['count-to',true,false]
+//    'class': {'count-to': 1!=1}
+//     attrs: {
+//       id: 'box'
+//     },
+//     style: {
+//       color: 'pink'
+//     },
+//     props: {
+//       endVal: 100
+//     },
+//     domProps: {
+//      innerHTML: '123'
+//     },
+//     on:{
+//       '内部发送的事件': (val) => {
+//        console.log('animation end')
+//     },
+//     directives: [],//自定义指令
+//     slot: 'default',
+//     scopedSlots: 'default',
+//     key: '',
+//     ref: ''
+//  },
+//  nativeOn: {
+//    'click': () => {
+//      console.log('click!!')
+//    }
+//  }
+//   },"renderfunction")
+// }

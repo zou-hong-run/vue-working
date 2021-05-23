@@ -1,5 +1,6 @@
 
 import Home from '@/views/Home.vue'
+import Layout from '@/views/layout.vue'
 export default [
   {
     path: '/',
@@ -20,6 +21,18 @@ export default [
     path: '/login',
     name: 'login',
     component: () => import('@/views/login.vue')
+  },
+  {
+    path: '/layout',
+    name: 'layout',
+    component: Layout,
+    children: [
+      {
+        path: 'row-col',
+        name: 'RowCol',
+        component: () => import('@/views/row-col.vue')
+      }
+    ]
   },
   {
     path: '/about',

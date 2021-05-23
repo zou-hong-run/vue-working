@@ -1,18 +1,34 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link :to="{name:'About'}">About</router-link>
+      <router-link to="/">
+        Home
+      </router-link> |
+      <router-link :to="{name:'About'}">
+        About
+      </router-link>
+      <h3>命名视图</h3>
     </div>
-    <h3>命名视图</h3>
     <transition-group name="router">
-      <router-view key="default"/>
-      <router-view key="email" name="email"/>
-      <router-view key="tel" name="tel"/>
+      <router-view key="default" />
+      <router-view
+        key="email"
+        name="email"
+      />
+      <router-view
+        key="tel"
+        name="tel"
+      />
     </transition-group>
   </div>
 </template>
 <style lang="less">
+html,body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
 // 进入
 // .router-enter{
 //   opacity: 0;
@@ -39,11 +55,16 @@
 //   opacity: 0;
 // }
 #app {
+  width: 100%;
+  height: 100%;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  // text-align: center;
   color: #2c3e50;
+}
+#nav {
+  text-align: center;
 }
 
 </style>
