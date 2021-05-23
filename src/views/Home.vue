@@ -1,11 +1,18 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <img
+      alt="Vue logo"
+      src="../assets/logo.png"
+    >
     <hr>
-    {{home}}
+    {{ home }}
     <hr>
-    <button @click="handleClick('back')">返回上一页</button>
-    <button @click="handleClick('push')">跳转到about</button>
+    <button @click="handleClick('back')">
+      返回上一页
+    </button>
+    <button @click="handleClick('push')">
+      跳转到about
+    </button>
   </div>
 </template>
 
@@ -14,12 +21,12 @@
 import { getUserInfo } from '@/api/user'
 export default {
   name: 'Home',
+  components: {
+  },
   props: {
     home: {
       type: String
     }
-  },
-  components: {
   },
   // 组件内导航
   // beforeRouteEnter (to, from, next) {

@@ -1,13 +1,13 @@
 <template>
   <div>
     <h1>store</h1>
-    <a-input v-model="inputValue"/>
+    <a-input v-model="inputValue" />
     <hr>
-    {{inputValue}}
+    {{ inputValue }}
     <hr>
-    {{appName}}
+    {{ appName }}
     <hr>
-    {{userName}}
+    {{ userName }}
   </div>
 </template>
 <script>
@@ -16,14 +16,14 @@ import AInput from '_c/AInput.vue'
 // const { mapState} = createNamespacedHelpers('user')
 // import { mapState } from 'vuex'
 export default {
-  name: 'store',
+  name: 'Store',
+  components: {
+    AInput
+  },
   data () {
     return {
       // inputValue:''
     }
-  },
-  components: {
-    AInput
   },
   computed: {
     // ...mapState({

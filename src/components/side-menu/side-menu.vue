@@ -31,8 +31,8 @@
       <template v-for="item in list">
         <re-dropdown
           v-if="item.children"
-          :show-title="false"
           :key="`drop_${item.name}`"
+          :show-title="false"
           icon-color="#fff"
           :parent="item"
           @on-select="handleSelect"

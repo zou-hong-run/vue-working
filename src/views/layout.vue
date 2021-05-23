@@ -36,7 +36,7 @@
 <script>
 import SideMenu from '_c/side-menu'
 export default {
-  name: 'Layout',
+  name: 'Layouts',
   components: {
     SideMenu
   },

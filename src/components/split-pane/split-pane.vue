@@ -1,25 +1,33 @@
 <template>
-  <div ref="outer" class="split-pane-wrapper">
-    <div :style="{ width:leftOffsetPercent, paddingRight: `${this.triggerWidth / 2}px`}" class="pane pane-left">1
+  <div
+    ref="outer"
+    class="split-pane-wrapper"
+  >
+    <div
+      :style="{ width:leftOffsetPercent, paddingRight: `${this.triggerWidth / 2}px`}"
+      class="pane pane-left"
+    >
+      1
       <!--<button @click="handleClick">-</button>-->
-      <slot name="left"></slot>
+      <slot name="left" />
     </div>
-    <div @mousedown="hanleMousedown" :style="{ left:triggerLeft, width: triggerWidth+'px'}" class="pane pane-trigger-con"></div>
-    <div :style="{ left:leftOffsetPercent, paddingLeft: `${this.triggerWidth / 2}px` }" class="pane pane-right">3
-      <slot name="right"></slot>
+    <div
+      :style="{ left:triggerLeft, width: triggerWidth+'px'}"
+      class="pane pane-trigger-con"
+      @mousedown="hanleMousedown"
+    />
+    <div
+      :style="{ left:leftOffsetPercent, paddingLeft: `${this.triggerWidth / 2}px` }"
+      class="pane pane-right"
+    >
+      3
+      <slot name="right" />
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "SplitPane",
-  data() {
-    return {
-      // value: 0.3,// 修改为value
-      canMove: false,
-      initOffset: 0,// 拖动条初始偏移量
-    }
-  },
+  name: 'SplitPane',
   props: {
     // 初始偏移量
     value: {
@@ -39,6 +47,13 @@ export default {
       default: 0.8
     }
   },
+  data () {
+    return {
+      // value: 0.3,// 修改为value
+      canMove: false,
+      initOffset: 0// 拖动条初始偏移量
+    }
+  },
   computed: {
     leftOffsetPercent () {
       return `${this.value * 100}%`
@@ -49,30 +64,30 @@ export default {
   },
   methods: {
     handleClick () {
-      this.$emit('update:value', this.value - 0.2);
+      this.$emit('update:value', this.value - 0.2)
     },
     hanleMousedown (event) {
-      const node = event.srcElement || event.target;
-      document.addEventListener('mousemove',this.hanleMousemove)
-      document.addEventListener('mouseup',this.hanleMouseup)
+      const node = event.srcElement || event.target
+      document.addEventListener('mousemove', this.hanleMousemove)
+      document.addEventListener('mouseup', this.hanleMouseup)
       this.canMove = true
       this.initOffset = event.pageX - node.getBoundingClientRect().left
     },
     hanleMousemove (event) {
-      if(!this.canMove){return}
+      if (!this.canMove) { return }
       // 偏移的像素
       const outerRect = this.$refs.outer.getBoundingClientRect()
-      let offsetPercent = (event.pageX - this.initOffset + this.triggerWidth/2 - outerRect.left) / outerRect.width
-      if(offsetPercent< this.min){ offsetPercent = this.min }
-      if(offsetPercent> this.max){ offsetPercent = this.max }
+      let offsetPercent = (event.pageX - this.initOffset + this.triggerWidth / 2 - outerRect.left) / outerRect.width
+      if (offsetPercent < this.min) { offsetPercent = this.min }
+      if (offsetPercent > this.max) { offsetPercent = this.max }
       // this.$emit('input', offsetPercent);
-      this.$emit('update:value', offsetPercent);
+      this.$emit('update:value', offsetPercent)
     },
     hanleMouseup () {
       this.canMove = false
     }
-  },
-};
+  }
+}
 </script>
 <style lang="less">
 .split-pane-wrapper {

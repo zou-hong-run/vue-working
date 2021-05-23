@@ -1,8 +1,14 @@
 <template>
   <div>
-    <slot name="left"></slot>
-    <span ref="number" :class="countClass" :id="eleId"></span>
-    <slot name="right">￥</slot>
+    <slot name="left" />
+    <span
+      :id="eleId"
+      ref="number"
+      :class="countClass"
+    />
+    <slot name="right">
+      ￥
+    </slot>
   </div>
 </template>
 <script>
@@ -10,29 +16,13 @@ import CountUp from 'countup'
 
 export default {
   name: 'CountTo',
-  computed: {
-    eleId () {
-      return `count_up_${this._uid}`
-    },
-    countClass () {
-      return [
-        'count-to-number',
-        this.className
-      ]
-    }
-  },
-  data () {
-    return {
-      counter: {}
-    }
-  },
-  props:{
+  props: {
     /**
      * @description 起始值
      */
     startVal: {
       type: Number,
-      default:1
+      default: 1
     },
     /**
      * @description 最终值
@@ -96,18 +86,20 @@ export default {
       default: ''
     }
   },
-  methods: {
-    getCount () {
-      // 父组件调用子组件的方法
-      return this.$refs.number.innerText
+  data () {
+    return {
+      counter: {}
+    }
+  },
+  computed: {
+    eleId () {
+      return `count_up_${this._uid}`
     },
-    // 改变数值后动画结束
-    emitEndEvent () {
-      setTimeout(()=>{
-        this.$nextTick(() => {
-          this.$emit('on-animation-end', Number(this.getCount()));
-        })
-      }, this.duration * 1000 + 5)
+    countClass () {
+      return [
+        'count-to-number',
+        this.className
+      ]
     }
   },
   watch: {
@@ -120,7 +112,7 @@ export default {
   mounted () {
     // 当页面组件都挂载完毕的时候调用
     this.$nextTick(() => {
-      this.counter = new CountUp(this.eleId,this.startVal,this.endVal,this.decimals,this.duration,{
+      this.counter = new CountUp(this.eleId, this.startVal, this.endVal, this.decimals, this.duration, {
         useEasing: this.useEasing,
         useGrouping: this.useGrouping,
         separator: this.separator,
@@ -129,8 +121,22 @@ export default {
       setTimeout(() => {
         this.counter.start()
         this.emitEndEvent()
-      }, this.delay);
+      }, this.delay)
     })
+  },
+  methods: {
+    getCount () {
+      // 父组件调用子组件的方法
+      return this.$refs.number.innerText
+    },
+    // 改变数值后动画结束
+    emitEndEvent () {
+      setTimeout(() => {
+        this.$nextTick(() => {
+          this.$emit('on-animation-end', Number(this.getCount()))
+        })
+      }, this.duration * 1000 + 5)
+    }
   }
 }
 </script>

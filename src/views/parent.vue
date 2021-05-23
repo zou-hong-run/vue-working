@@ -2,7 +2,7 @@
   <div>
     parent page
     <hr>
-    <router-view/>
+    <router-view />
   </div>
 </template>
 <script>

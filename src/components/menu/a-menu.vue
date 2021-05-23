@@ -1,11 +1,11 @@
 <template>
   <div class="a-menu">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 <script>
 export default {
-  name: "AMenu"
+  name: 'AMenu'
 }
 </script>
 <style lang="less">

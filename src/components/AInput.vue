@@ -1,5 +1,8 @@
 <template>
-  <input @input="handleInput" :value='value'>
+  <input
+    :value="value"
+    @input="handleInput"
+  >
 </template>
 <script>
 export default {

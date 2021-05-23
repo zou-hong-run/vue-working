@@ -1,19 +1,23 @@
 <template>
   <div class="split-pane-con">
     <split-pane :value.sync="offset">
-      <template v-slot:left><div>leftcontainer</div></template>
-      <template v-slot:right><div>rightcontainer</div></template>
+      <template v-slot:left>
+        <div>leftcontainer</div>
+      </template>
+      <template v-slot:right>
+        <div>rightcontainer</div>
+      </template>
     </split-pane>
   </div>
 </template>
 <script>
 import SplitPane from '_c/split-pane'
 export default {
-  name: 'split_pane',
+  name: 'SplitPane',
   components: {
     SplitPane
   },
-  data() {
+  data () {
     return {
       offset: 0.8
     }
@@ -22,7 +26,7 @@ export default {
     // handleInput (value) {
     //   this.offset = value
     // }
-  },
+  }
 }
 </script>
 <style lang="less">

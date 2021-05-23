@@ -1,7 +1,7 @@
 <template>
   <div class="a-menu-item">
     <li>
-      <slot></slot>
+      <slot />
     </li>
   </div>
 </template>

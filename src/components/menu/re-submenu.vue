@@ -1,13 +1,21 @@
 // 递归组件 最重要一点，有一个name
 <template>
   <a-submenu>
-    <div slot="title">{{ parent.title }}</div>
+    <div slot="title">
+      {{ parent.title }}
+    </div>
     <template v-for="(item,i) in parent.children">
-      <a-menu-item v-if="!item.children" :key="`menu_item_${index}_${i}`">
-        {{item.title}}
+      <a-menu-item
+        v-if="!item.children"
+        :key="`menu_item_${index}_${i}`"
+      >
+        {{ item.title }}
       </a-menu-item>
-      <re-submenu v-else :parent="item" :key="`menu_item_${index}_${i}`">
-      </re-submenu>
+      <re-submenu
+        v-else
+        :key="`menu_item_${index}_${i}`"
+        :parent="item"
+      />
     </template>
   </a-submenu>
 </template>
@@ -23,12 +31,15 @@ export default {
   props: {
     parent: {
       type: Object,
-      default: ()=>({})
+      default: () => ({})
     },
-    index: Number
+    index: {
+      type: Number,
+      default: 0
+    }
   },
-  mounted() {
+  mounted () {
     // console.log(this.parent)
-  },
+  }
 }
 </script>

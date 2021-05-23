@@ -17,11 +17,18 @@
     -->
     <a-menu>
       <template v-for="(item, index) in list">
-        <a-menu-item v-if="!item.children" :key="`menu_item_${index}`">
+        <a-menu-item
+          v-if="!item.children"
+          :key="`menu_item_${index}`"
+        >
           {{ item.title }}
         </a-menu-item>
-        <re-submenu v-else :key="`menu_item_${index}`" :parent="item" :index="index" >
-        </re-submenu>
+        <re-submenu
+          v-else
+          :key="`menu_item_${index}`"
+          :parent="item"
+          :index="index"
+        />
       </template>
     </a-menu>
   </div>
@@ -29,17 +36,16 @@
 <script>
 import menu from '_c/menu'
 import ReSubmenu from '_c/menu/re-submenu.vue'
-const { AMenu, AMenuItem, ASubmenu } = menu
+const { AMenu, AMenuItem } = menu
 
 export default {
-  name: 'menu_page',
+  name: 'MenuPage',
   components: {
     AMenu,
     AMenuItem,
-    ASubmenu,
     ReSubmenu
   },
-  data() {
+  data () {
     return {
       list: [
         {
@@ -52,7 +58,7 @@ export default {
           title: '333',
           children: [
             {
-              title: '333-1',
+              title: '333-1'
             },
             {
               title: '333-2',
@@ -75,7 +81,7 @@ export default {
         }
       ]
     }
-  },
+  }
 }
 </script>
 <style lang="less">

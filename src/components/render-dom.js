@@ -7,6 +7,6 @@ export default {
     renderFunc: Function
   },
   render: (h, ctx) => {
-    return ctx.props.renderFunc(h,ctx.props.name)
-  },
+    return ctx.props.renderFunc(h, ctx.props.name)
+  }
 }
