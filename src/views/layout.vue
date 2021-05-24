@@ -6,6 +6,7 @@
         shadow
         collapsible
         hide-trigger
+        breakpoint="md"
       >
         <side-menu
           :list="menuList"

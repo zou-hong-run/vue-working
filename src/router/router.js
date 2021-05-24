@@ -31,6 +31,11 @@ export default [
         path: 'row-col',
         name: 'RowCol',
         component: () => import('@/views/row-col.vue')
+      },
+      {
+        path: 'table',
+        name: 'table',
+        component: () => import('@/views/table.vue')
       }
     ]
   },

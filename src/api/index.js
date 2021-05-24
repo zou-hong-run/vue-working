@@ -1,3 +1,3 @@
 import HttpRequst from '@/lib/axios'
-const axios = new HttpRequst()
+const axios = HttpRequst
 export default axios
