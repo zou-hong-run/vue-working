@@ -1,8 +1,9 @@
 <template>
   <div>
     <edit-table
-      :data="tableData"
+      v-model="tableData"
       :columns="columns"
+      @on-edit="handleEdit"
     />
   </div>
 </template>
@@ -16,8 +17,9 @@ export default {
   data () {
     return {
       tableData: [],
+      testData: [],
       columns: [
-        { key: 'name', title: '姓名' },
+        { key: 'name', title: '姓名' }, // 自定义editable字段
         { key: 'age', title: '年龄', editable: true },
         { key: 'email', title: '邮箱', editable: true }
       ]
@@ -25,8 +27,14 @@ export default {
   },
   mounted () {
     getTableData().then(res => {
+      // console.log(res.data)
       this.tableData = res.data
     })
+  },
+  methods: {
+    handleEdit ({ row, index, column, newValue }) {
+      console.log(row, index, column, newValue)
+    }
   }
 }
 </script>
