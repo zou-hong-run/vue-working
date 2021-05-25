@@ -1,0 +1,50 @@
+diff a/src/components/edit-table/edit-table.vue b/src/components/edit-table/edit-table.vue	(rejected hunks)
+@@ -34 +31 @@ export default {
+-    columns: function(){
++    columns: function () {
+@@ -42 +42 @@ export default {
+-        let tableData = clonedeep(this.value)
++        const tableData = clonedeep(this.value)
+@@ -46 +46 @@ export default {
+-        this.$emit('input', tableData);
++        this.$emit('input', tableData)
+@@ -48 +48 @@ export default {
+-        this.$emit('on-edit', { row, index, column, newValue: this.edittingContent});
++        this.$emit('on-edit', { row, index, column, newValue: this.edittingContent })
+@@ -51 +51 @@ export default {
+-      }else {
++      } else {
+@@ -64 +64 @@ export default {
+-        item.render = (h, { row, index, column }) => {// 行数据，索引，列数据
++          item.render = (h, { row, index, column }) => { // 行数据，索引，列数据
+@@ -66,15 +66,15 @@ export default {
+-          const isEditting = this.edittingId === `${column.key}_${index}`
+-          return (
+-            <div>
+-              {
+-                isEditting
+-                  ? <Input on-input={this.handleInput} value={row[column.key]} style="width: 50px"/>
+-                  : <span>{row[column.key]}</span>
+-              }
+-              <Button on-click={this.handleClick.bind(this, { row, index, column })} type="warning">
+-                {isEditting ? '保存' : '编辑'}
+-              </Button>
+-            </div>
+-          )
+-        }
+-        return item // map返回组合成 一个新的数组
++            const isEditting = this.edittingId === `${column.key}_${index}`
++            return (
++              <div>
++                {
++                  isEditting
++                    ? <Input on-input={this.handleInput} value={row[column.key]} style="width: 50px"/>
++                    : <span>{row[column.key]}</span>
++                }
++                <Button on-click={this.handleClick.bind(this, { row, index, column })} type="warning">
++                  {isEditting ? '保存' : '编辑'}
++                </Button>
++              </div>
++            )
++          }
++          return item // map返回组合成 一个新的数组
