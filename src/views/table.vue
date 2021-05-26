@@ -1,18 +1,25 @@
 <template>
   <div>
-    <edit-table
+    <!-- <edit-table
       v-model="tableData"
       :columns="columns"
       @on-edit="handleEdit"
+    /> -->
+    <edit-table-mul
+      v-model="tableData"
+      :columns="columns"
     />
   </div>
 </template>
 <script>
 import { getTableData } from '@/api/data'
-import EditTable from '_c/edit-table'
+// import EditTable from '_c/edit-table'
+import EditTableMul from '_c/edit-table-mul'
+
 export default {
   components: {
-    EditTable
+    // EditTable,
+    EditTableMul
   },
   data () {
     return {

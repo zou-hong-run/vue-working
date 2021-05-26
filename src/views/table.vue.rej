@@ -1,6 +1,0 @@
-diff a/src/views/table.vue b/src/views/table.vue	(rejected hunks)
-@@ -35,2 +35,2 @@ export default {
--    handleEdit({ row, index, column, newValue }) {
--      console.log( row, index, column, newValue)
-+    handleEdit ({ row, index, column, newValue }) {
-+      console.log(row, index, column, newValue)
