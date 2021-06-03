@@ -3,12 +3,17 @@ import {
   getUserInfo
 } from './response/user'
 import {
-  getTableData
+  getTableData,
+  getFileList,
+  getFolderList
 } from './response/data'
 const Random = Mock.Random
 // 拦截请求
 Mock.mock('/getUserInfo', 'post', getUserInfo)
 Mock.mock('/getTableData', 'get', getTableData)
+Mock.mock('/getFileList', 'get', getFileList)
+Mock.mock('/getFolderList', 'get', getFolderList)
+
 // 模拟数据延迟
 Mock.setup({
   timeout: 100
