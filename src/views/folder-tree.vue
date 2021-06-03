@@ -1,14 +1,17 @@
 <template>
-  <div class="folder-wrapper" />
+  <div class="folder-wrapper">
+    <Tree :data="folderTree" />
+  </div>
 </template>
 <script>
 import { getFolderList, getFileList } from '@/api/data'
-import { putFileInFolder } from '@/lib/util'
+import { putFileInFolder, transferFolderToTree } from '@/lib/util'
 export default {
   data () {
     return {
       folderList: [],
-      fileList: []
+      fileList: [],
+      folderTree: []
     }
   },
   mounted () {
@@ -16,7 +19,7 @@ export default {
       getFolderList(),
       getFileList()
     ]).then(res => {
-      console.log(putFileInFolder(res[0].data, res[1].data))
+      this.folderTree = transferFolderToTree(putFileInFolder(res[0].data, res[1].data))
     })
   },
   methods: {

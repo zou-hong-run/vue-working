@@ -63,3 +63,29 @@ export const putFileInFolder = (folderList, fileList) => {
   // return arr
   return newFolderList
 }
+/**
+ * 将文件夹转为文件夹树
+ * @param {文件列表} folderList
+ */
+export const transferFolderToTree = folderList => {
+  if (!folderList.length) return []
+  const folderListCloned = clonedeep(folderList)
+  // 传入id初始为零
+  const handle = id => {
+    const arr = []
+    // 遍历原文件夹
+    folderListCloned.forEach(folder => {
+      // 遍历的文件夹项是否是，hanle所传入的级别，如果不是他就是该文件夹的孩子
+      if (folder.folder_id === id) {
+        // 递归调用handle（传入文件的id,和子文件的folder_id对应）返回的值赋给children
+        const children = handle(folder.id) // 递归的尽头是 []
+        if (folder.children) folder.children = [].concat(folder.children, children)
+        else folder.children = children
+        folder.title = folder.name
+        arr.push(folder)
+      }
+    })
+    return arr
+  }
+  return handle(0)
+}
